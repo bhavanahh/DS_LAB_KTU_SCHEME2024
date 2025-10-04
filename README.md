@@ -7,7 +7,7 @@ structures, and algorithms for searching and sorting.
 
 1 Find the sum of two sparse polynomials using arrays <br>
 2 Find the transpose of a sparse matrix and sum of two sparse matrices.   <br>
-3 Convert infix expression to postfix (or prefix) and then evaluate using stack, 
+3 Convert infix expression to postfix (or prefix) and then evaluate using stack, <br>
 4 Implement Queue, DEQUEUE, and Circular Queue using arrays.  <br>
 5 Implement backward and forward navigation of visited web pages in a web browser (i.e. 
 back and forward buttons) using doubly linked list operations.  <br>
