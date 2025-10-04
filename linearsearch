@@ -27,3 +27,29 @@ void main()
     else
     printf("elemet is not present");
 }
+
+
+✨ Algorithm for main() function
+
+Step 1: Start
+Step 2: Read the limit n.
+Step 3: Read n elements into array a[].
+Step 4: Read the target element target.
+Step 5: Call linearsearch(a, n, target) and store the result in p.
+Step 6: If p != -1, then
+    Display “Element is present at position p+1”.
+Else
+    Display “Element is not present”.
+Step 7: Stop
+
+✨ Algorithm for linearsearch() function
+
+Step 1: Start
+Step 2: Input array a[], number of elements n, and target.
+Step 3: Repeat for each index i from 0 to n-1:
+    If a[i] == target, then
+      Return index i.
+Step 4: If no element matches, return -1.
+Step 5: Stop
+
+
