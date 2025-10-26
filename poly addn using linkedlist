@@ -1,0 +1,106 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node{
+    int expo;
+    int coef;
+    struct node *next;
+}*poly1=NULL,*poly2=NULL,*poly3=NULL;
+
+struct node *create(struct node *poly,int co,int ex)
+{
+    struct node *temp = (struct node*)malloc(sizeof(struct node));
+    temp->coef = co;
+    temp->expo = ex;
+    temp->next = NULL;
+
+    if(poly == NULL)
+        poly = temp;
+    else{
+        struct node *curr = poly;
+        while(curr->next != NULL)
+            curr = curr->next;
+        curr->next = temp;
+    }
+    return poly;
+}
+
+struct node *add(struct node *poly1, struct node *poly2)
+{
+    while(poly1 != NULL && poly2 != NULL)
+    {
+        if(poly1->expo == poly2->expo)
+        {
+            poly3 = create(poly3, poly1->coef + poly2->coef, poly1->expo);
+            poly1 = poly1->next;
+            poly2 = poly2->next;
+        }
+        else if(poly1->expo > poly2->expo)
+        {
+            poly3 = create(poly3, poly1->coef, poly1->expo);
+            poly1 = poly1->next;
+        }
+        else 
+        {
+            poly3 = create(poly3, poly2->coef, poly2->expo);
+            poly2 = poly2->next;
+        }
+    }
+    while(poly1 != NULL)
+    {  
+        poly3 = create(poly3, poly1->coef, poly1->expo);
+        poly1 = poly1->next; 
+    }
+    while(poly2 != NULL)
+    {  
+        poly3 = create(poly3, poly2->coef, poly2->expo);
+        poly2 = poly2->next;
+    }
+    return poly3;
+}
+
+void display(struct node *poly)
+{
+    struct node *curr = poly;
+    while(curr != NULL)
+    {   
+        if(curr->expo != 0)
+            printf("%dX^%d+", curr->coef, curr->expo);
+        else
+            printf("%d", curr->coef);
+        curr = curr->next;
+    }
+}
+
+int main()
+{
+    int n1, n2, x, y, i;
+
+    printf("Enter number of terms of poly 1: ");
+    scanf("%d", &n1);
+    for(i = 0; i < n1; i++)
+    {
+        printf("Enter COEF and Expo: ");
+        scanf("%d%d", &x, &y);
+        poly1 = create(poly1, x, y);
+    }
+
+    printf("Enter number of terms of poly 2: ");
+    scanf("%d", &n2);
+    for(i = 0; i < n2; i++)
+    {
+        printf("Enter COEF and Expo: ");
+        scanf("%d%d", &x, &y);
+        poly2 = create(poly2, x, y);
+    }
+
+    display(poly1);
+    printf("\n");
+    display(poly2);
+    printf("\n");
+
+    poly3 = add(poly1, poly2);
+    display(poly3);
+
+    return 0;
+}
