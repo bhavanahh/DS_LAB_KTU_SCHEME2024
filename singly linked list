@@ -1,0 +1,110 @@
+#include <stdio.h>
+#include<stdlib.h>
+struct node{
+    int data;
+    struct node*next;
+}*head=NULL;
+
+void insertfirst(int x){
+    struct node*temp=(struct node *)malloc(sizeof(struct node));
+    if(head==NULL)//empty
+    {
+        temp->data=x;
+        temp->next=head;
+        head=temp;
+    }
+    else{ //already element present
+        temp->data=x;
+        temp->next=head;
+        head=temp;
+    }
+}
+
+void insertlast(int x)
+{
+    struct node*temp=(struct node*)malloc(sizeof(struct node));
+    if(head==NULL){
+        temp->data=x;
+        temp->next=NULL;
+        head=temp;
+    }
+    else{
+        temp->data=x;
+        struct node*curr=head;
+        while(curr->next!=NULL)
+        curr=curr->next;
+        curr->next=temp;
+        temp->next=NULL;
+    }
+}
+
+void insertafterx(int x) {
+    if (head == NULL) {
+        printf("Empty list, cannot insert.\n");
+    }
+    struct node* curr = head;
+
+while (curr != NULL && curr->data != x)
+        curr = curr->next;
+
+    if (curr == NULL) {
+        printf("Element %d not found in the list.\n", x);
+    } else {
+        int a;
+        printf("Enter the value to be inserted after %d: ", x);
+        scanf("%d", &a);
+
+        struct node* temp = (struct node*)malloc(sizeof(struct node));
+        temp->data = a;
+        temp->next = curr->next;
+        curr->next = temp;
+
+        printf("Inserted %d after %d successfully.\n", a, x);
+    }
+}
+
+
+
+
+
+void display(){
+    struct node* curr=head;//head stored into curr for traversing and print it
+    while(curr!=NULL){
+        printf("%d",curr->data);
+        curr=curr->next;
+    }
+}
+
+void main(){
+    int ch,a;
+    printf("1.insertfirst 2.insert last 3.delete first 4.delete last 5.insertr value after x 6.delete node x 7.display 8.exit");
+     while(1){
+    printf("enter the choice");
+    scanf("%d",&ch);
+   
+        switch(ch){
+        case 1:
+        printf("enter the element tp insert");
+        scanf("%d",&a);
+        insertfirst(a);
+        break;
+        case 2:
+        printf("enter the element to ");
+        scanf("%d",&a);
+        insertlast(a);
+        break;
+        case 5:
+            printf("Enter the element after which to insert: ");
+        scanf("%d",&a);
+        insertafterx(a);
+        break;
+        case 7:display();
+        break;
+        case 8:exit(0);
+        break;
+        default:
+        printf("invalid choice");
+    break;
+        }
+}
+}
