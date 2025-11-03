@@ -63,7 +63,38 @@ while (curr != NULL && curr->data != x)
     }
 }
 
+void deletefirst(){
+    if (head==NULL)
+    printf("empty list");
+    else if(head->next==NULL){
+    printf("element removed:%d",head->data);
+    head=NULL;
+    }
+    else{
+    printf("element removed:%d",head->data);
+    head=head->next;
+    } 
+}
 
+
+void deletelast(){
+    if(head==NULL)
+    printf("empty list");
+    else if(head->next==NULL){
+        printf("element removed:%d",head->data);
+    head=NULL;
+    }
+    else{
+    struct node*curr=head;
+    struct node*prev=NULL;
+    while(curr->next!=NULL){
+    prev=curr;
+    curr=curr->next;
+    }
+    printf("element removed-%d",curr->data);
+    prev->next=NULL;
+}
+}
 
 
 
@@ -92,6 +123,11 @@ void main(){
         printf("enter the element to ");
         scanf("%d",&a);
         insertlast(a);
+        break;
+        case 3:deletefirst();
+        break;
+        case 4:
+        deletelast();
         break;
         case 5:
             printf("Enter the element after which to insert: ");
