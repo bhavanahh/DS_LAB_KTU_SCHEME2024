@@ -1,0 +1,84 @@
+#include <stdio.h>
+
+// ---------- Merge Function ----------
+
+void merge(int a[], int low, int mid, int high) {
+    int b[100];
+    int i = low, j = mid + 1, k = low;
+
+    // Merge in descending order
+    while (i <= mid && j <= high) {
+        if (a[i] > a[j])  // Note: '>' for descending
+            b[k++] = a[i++];
+        else
+            b[k++] = a[j++];
+    }
+
+    while (i <= mid)
+        b[k++] = a[i++];
+
+    while (j <= high)
+        b[k++] = a[j++];
+
+    for (i = low; i <= high; i++)
+        a[i] = b[i];
+}
+
+// ---------- Merge Sort Function ----------
+
+void mergesort(int a[], int low, int high) {
+    if (low < high) {
+        int mid = (low + high) / 2;
+        mergesort(a, low, mid);
+        mergesort(a, mid + 1, high);
+        merge(a, low, mid, high);
+    }
+}
+
+// ---------- Binary Search Function ----------
+
+int binarySearch(int a[], int n, int key) {
+    int low = 0, high = n - 1;
+    while (low <= high) {
+        int mid = (low + high) / 2;
+        if (a[mid] == key)
+            return mid;  // element found
+        else if (a[mid] < key)  // descending order
+            high = mid - 1;
+        else
+            low = mid + 1;
+    }
+    return -1;  // not found
+}
+
+// ---------- Main Function ----------
+
+int main() {
+    int a[100], n, i, key, pos;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter the elements:\n");
+    for (i = 0; i < n; i++)
+        scanf("%d", &a[i]);
+
+    mergesort(a, 0, n - 1);
+
+    printf("\nSorted array in Descending Order:\n");
+    for (i = 0; i < n; i++)
+        printf("%d ", a[i]);
+
+    printf("\n\nEnter element to search: ");
+    scanf("%d", &key);
+
+    pos = binarySearch(a, n, key);
+
+    if (pos == -1)
+        printf("\nElement not found.\n");
+    else
+        printf("\nElement %d found at position %d (index %d).\n", key, pos + 1, pos);
+
+    return 0;
+}
+
