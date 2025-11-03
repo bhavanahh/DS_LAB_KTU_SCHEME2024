@@ -1,1 +1,86 @@
+#include <stdio.h>
+#include<stdlib.h>
+#define  maxsize 100
+int queue[100];
+int front=-1;
+int rear=-1;
 
+
+void enqueue(int a){
+    if( front==((rear+1)%maxsize))
+    printf("queue overflow");
+   else if(front ==-1)
+    
+    {
+        front=0;
+        rear=0;
+        queue[rear]=a;
+    }
+    else
+    {
+        rear=(rear+1)%maxsize;
+    queue[rear]=a;
+    }
+}
+
+void dequeue() {
+    if (front == -1) {
+        printf("Queue Underflow! (Empty Queue)\n");
+    }
+    else if (front == rear) {
+        printf("Element removed - %d\n", queue[front]);
+        front = -1;
+        rear = -1;  
+    }
+    else {
+        printf("Element removed - %d\n", queue[front]);
+        front=(front+1)%maxsize;
+    }
+}
+
+
+void display() {
+    if (front == -1) {
+        printf("Queue is Empty!\n");
+    } else {
+        printf("Queue elements are:\n");
+        int i = front;
+        while (1) {
+            printf("%d ", queue[i]);
+            if (i == rear)
+                break;
+            i = (i + 1) % maxsize;
+        }
+        printf("\n");
+    }
+}
+
+
+void main(){
+    int ch,a,i;
+    printf("1.enqueue\n2.Dequeue\n3.display\n 4.exit\n");
+    while(1){
+    printf("enter the choice:\n");
+    scanf("%d",&ch);       
+    switch(ch){
+        case 1:
+        printf("enter the ement to be added");
+        scanf("%d",&a);
+        enqueue(a);
+        break;
+        case 2:
+        dequeue();
+        break;
+        case 3:
+        display();
+        break;
+        case 4:
+        exit(0);
+        break;
+        default:
+        printf("invalid\n");
+       
+    }
+        
+    }
+}
