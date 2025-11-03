@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include<stdlib.h>
+#define  maxsize 100
+int s[maxsize];
+int top=-1;
+
+void push(int a){
+    if(top==maxsize-1)
+    printf("stack overflow");
+    else
+    {
+        top++;
+        s[top]=a;
+    }
+}
+void pop(){
+    if(top==-1)
+    printf("stack empty\n");
+    else{
+        printf("element removed-%d\n",s[top]);
+        top--;
+    }
+}
+void display(){
+    int i;
+    if(top==-1)
+    printf("empty");
+    else
+    {printf("stack:\n");
+    
+        for(i=top;i>=0;i--)
+        printf("%d\n",s[i]);
+    }
+}
+
+void main(){
+    int ch,a,i;
+    printf("1.push\n 2.pop\n 3.display\n 4.exit\n");
+    while(1){
+    printf("enter the choice:\n");
+    scanf("%d",&ch);       
+    switch(ch){
+        case 1:
+        printf("enter the ement to be added");
+        scanf("%d",&a);
+        push(a);
+        break;
+        case 2:
+        pop();
+        break;
+        case 3:
+        display();
+        break;
+        case 4:
+        exit(0);
+        break;
+        default:
+        printf("invalid\n");
+       
+    }
+        
+    }
+}
