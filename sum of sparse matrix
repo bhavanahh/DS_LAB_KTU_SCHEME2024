@@ -1,0 +1,82 @@
+#include <stdio.h>
+void addsparse(int a[][10],int b[][10],int c[][10]){
+    int r1,r2,c2,c1;
+    int i,j,k;
+    r1=a[0][0];
+    r2=b[0][0];
+    c1=a[0][1];
+    c2=b[0][1];
+    if(c1!=c2 || r1!=r2)
+    printf("matric addn cant be done");
+    else{
+    c[0][0]=a[0][0];
+    c[0][1]=a[0][1];
+    int m=1,n=1,k=1;
+    for(i=0;i<r1;i++) {
+    for(j=0; j<c1; j++) {
+         if((a[m][0]==i && a[m][1]==j)&&(a[n][0]==i && a[n][1]==j))
+         {
+             c[k][0]=a[m][0];
+             c[k][1]=a[m][1];
+             c[k][2]=a[m][2]+b[n][2];
+             m++;
+             n++;
+             k++;
+             }
+    
+        else if(a[m][0]==i && a[m][1]==j)
+            {
+                c[k][0]=a[m][0];
+                c[k][1]=a[m][1];
+                c[k][2]=a[m][2];
+                m++;
+                k++;
+            }
+            else
+            {
+                c[k][0]=b[n][0];
+                c[k][1]=b[n][1];
+                c[k][2]=b[n][2];
+                n++;
+                k++;
+            }
+}
+}
+ c[0][2]=k-1;
+}
+ for(i=0;i<r1;i++){
+     for(j=0;j<3;j++){
+        printf("%d",c[i][j]);
+        printf("\t");
+} printf("\n");
+    }
+}
+
+void main(){
+    int m1,m2,n1,n2;
+    int i,j;
+    int a[10][10],b[10][10],c[10][10];
+    printf("enter the no. of rows in 1st mt");
+    scanf("%d",&m1);
+    printf("enter the no of column in 1st mat");
+    scanf("%d",&n1);
+    for(i=0;i<m1;i++)
+    {
+     for(j=0;j<n1;j++){
+    scanf("%d",&a[i][j]);
+}
+}
+   printf("enter the no. of rows in 2 mt");
+    scanf("%d",&m2);
+    printf("enter the no of column in 2 mat");
+    scanf("%d",&n2);
+    for(i=0;i<m2;i++)
+    {
+     for(j=0;j<n2;j++){
+    scanf("%d",&b[i][j]);
+}
+}
+printf("sum:\n");   
+ addsparse(a,b,c);   
+
+}
