@@ -10,7 +10,7 @@ void insertfirst(int x){
     if(head==NULL)//empty
     {
         temp->data=x;
-        temp->next=head;
+        temp->next=NULL;
         head=temp;
     }
     else{ //already element present
