@@ -42,31 +42,3 @@ for (i = 0; i < m; i++) {
 sparse(a, m, n);  
 }
 
-Algorithm
-
-Algorithm for main function
-
-Step 1: Start
-Step 2: Read the number of rows m and columns n.
-Step 3: Read the elements of matrix a[m][n].
-Step 4: Call function sparse(a, m, n).
-Step 5: Stop
-
-Algorithm for sparse function
-
-Step 1: Start
-Step 2: Initialize k = 1.
-Step 3: Set b[0][0] = m, b[0][1] = n.
-Step 4: Repeat Steps 5–7 for each element of the matrix with i = 0 to m-1 and j = 0 to n-1.
-Step 5: If a[i][j] != 0, then
-    a) Set b[k][0] = i.
-    b) Set b[k][1] = j.
-    c) Set b[k][2] = a[i][j].
-    d) Increment k = k + 1.
-    Go to Step 7.
-Step 6: Otherwise, go to Step 7.
-Step 7: Continue until all elements are checked.
-Step 8: Set b[0][2] = k - 1.
-Step 9: Display the sparse matrix b.
-Step 10: Stop
-}
