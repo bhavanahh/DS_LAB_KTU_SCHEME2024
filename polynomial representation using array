@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+struct term {
+    int coef;
+    int expo;
+};
+
+int main() {
+    struct term poly[20];
+    int n, i;
+
+    // Input number of terms
+    printf("Enter number of terms in the polynomial: ");
+    scanf("%d", &n);
+
+    // Input polynomial
+    printf("Enter coefficient and exponent (in descending order):\n");
+    for (i = 0; i < n; i++) {
+        scanf("%d %d", &poly[i].coef, &poly[i].expo);
+    }
+
+    // Display polynomial
+    printf("\nPolynomial: ");
+    for (i = 0; i < n; i++) {
+        printf("%dX^%d", poly[i].coef, poly[i].expo);
+        if (i != n - 1)
+            printf(" + ");
+    }
+
+    printf("\n");
+    return 0;
+}
