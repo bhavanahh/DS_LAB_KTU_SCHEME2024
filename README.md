@@ -1,11 +1,6 @@
 ## DS_LAB_KTU_SCHEME2024
-### Course Objectives:  
-To give practical experience for learners on implementing different linear and non linear data 
-structures, and algorithms for searching and sorting. 
-
 
 HEYO ITS JUST A REPO HAVING ALL THE EXPERIMENTS DONE IN COLLEGE AS A PART OF DATA STRUCTURE LAB THIRD SEMESTER 2024 SCHEME
-
 
 ### SYLLABUS
 ### Experiments
