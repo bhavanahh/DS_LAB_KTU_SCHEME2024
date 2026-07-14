@@ -11,6 +11,7 @@ A data structure is a way of organizing and storing data in a computer so that i
 
 **Examples:** Arrays, Linked Lists, Stacks, Queues, Trees, and Graphs.
 
+
 ---
 
 ## 2. What is the difference between linear and non-linear data structures?
