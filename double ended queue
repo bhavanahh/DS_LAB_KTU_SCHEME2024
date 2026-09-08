@@ -12,6 +12,7 @@ void insertFront(int x) {
         return;
     }
 
+
     if (front == -1) {  // empty queue
         front = rear = 0;
     }
