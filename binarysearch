@@ -6,6 +6,7 @@ int binarysearch(int a[], int n, int target) {
     while (low <= high) {
         mid = (low + high) / 2;
 
+
         if (a[mid] == target)
             return mid; // Target found, return index
         else if (a[mid] < target)
