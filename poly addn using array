@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 struct term {
     int coef;
     int expo;
