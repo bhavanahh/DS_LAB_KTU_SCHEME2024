@@ -6,7 +6,6 @@ struct term {
 
 int main() {
     int n1, n2, n3 = 0, i = 0, j = 0;
-
     // Input first polynomial
     printf("Enter number of terms in first polynomial: ");
     scanf("%d", &n1);
